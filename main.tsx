@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App.tsx'
 import './index.css'
 import Marketplace from './pages/marketplace/Marketplace.tsx';
+import { InputOfItemsProvider } from './context/InputOfItemsContext.tsx'
 
 export default function Main() {
   return (
@@ -19,14 +20,11 @@ export default function Main() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
-// .render(
-  // <React.StrictMode>
-    {/* <App /> */}
-  {/* </React.StrictMode>, */}
-// )
 
 root.render(
   <React.StrictMode>
-    <Main />
+    <InputOfItemsProvider>
+      <Main />
+    </InputOfItemsProvider>
   </React.StrictMode>
 )
